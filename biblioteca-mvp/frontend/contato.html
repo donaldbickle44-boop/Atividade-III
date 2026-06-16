@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Contato</h1>
+
+<input id="nome" placeholder="Nome">
+
+<input id="email" placeholder="Email">
+
+<textarea
+id="mensagem"
+placeholder="Mensagem">
+</textarea>
+
+<button onclick="enviar()">
+
+Enviar
+
+</button>
+
+</div>
+
+<script>
+
+async function enviar(){
+
+await fetch(
+'http://localhost:3000/contato',
+{
+method:'POST',
+
+headers:{
+'Content-Type':'application/json'
+},
+
+body:JSON.stringify({
+
+nome:nome.value,
+email:email.value,
+mensagem:mensagem.value
+
+})
+
+}
+)
+
+alert('Mensagem enviada')
+
+}
+
+</script>
+
+</body>
+
+</html>

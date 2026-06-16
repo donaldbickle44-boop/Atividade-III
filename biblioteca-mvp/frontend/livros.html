@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Cadastro Livro</h1>
+
+<input id="titulo" placeholder="Título">
+
+<input id="isbn" placeholder="ISBN">
+
+<input id="ano" placeholder="Ano">
+
+<button onclick="salvar()">
+
+Salvar
+
+</button>
+
+</div>
+
+<script>
+
+async function salvar(){
+
+await fetch(
+'http://localhost:3000/livros',
+{
+method:'POST',
+
+headers:{
+'Content-Type':'application/json'
+},
+
+body:JSON.stringify({
+
+titulo:titulo.value,
+isbn:isbn.value,
+ano:ano.value
+
+})
+
+}
+)
+
+alert("Livro salvo")
+
+}
+
+</script>
+
+</body>
+</html>

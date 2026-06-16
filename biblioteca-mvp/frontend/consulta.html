@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Consultar Livros</h1>
+
+<button onclick="buscar()">
+
+Carregar
+
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<script>
+
+async function buscar(){
+
+let dados=
+await fetch(
+'http://localhost:3000/livros'
+)
+
+let livros=
+await dados.json()
+
+resultado.innerHTML=''
+
+livros.forEach(l=>{
+
+resultado.innerHTML +=
+l.titulo+"<br>"
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
